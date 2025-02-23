@@ -203,7 +203,7 @@ const Certifications = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-6">
             <FaShieldVirus className="text-4xl text-[#2558a5]" />
-            <h2 className="text-4xl font-['Golden_Antique'] text-[#ccadd3]">
+            <h2 className="text-4xl font-['Golden_Antique'] cyber-glitch">
               Security Clearance
             </h2>
           </div>

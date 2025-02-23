@@ -85,7 +85,12 @@ const Experience = () => {
         "Network Penetration",
         "API Security Testing",
       ],
-      achievements: ["TBA"],
+      achievements: [
+        "Led complex security assessments for enterprise clients",
+        "Developed custom exploitation tools and scripts",
+        "Mentored junior team members in testing methodologies",
+        "Improved internal security testing procedures",
+      ],
       tools: ["Burp Suite Pro", "Metasploit", "Nmap", "OWASP ZAP"],
       icon: <FaCrosshairs className="text-2xl" />,
       type: "tactical",
@@ -216,174 +221,208 @@ const Experience = () => {
               initial={{ height: 0 }}
               animate={{ height: "100%" }}
               transition={{ duration: 1 }}
-            />
+            >
+              {/* Add Flowing Ribbons */}
+              <div className="ribbon-container">
+                <div className="ribbon ribbon-1"></div>
+                <div className="ribbon ribbon-2"></div>
+                <div className="ribbon ribbon-3"></div>
+                <div className="ribbon ribbon-4"></div>
+              </div>
+            </motion.div>
 
             <div className="space-y-16">
               {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  } gap-8`}
-                >
-                  {/* Timeline Node */}
-                  <div className="absolute left-8 md:left-1/2 w-12 h-12 transform -translate-x-1/2 z-10">
-                    <motion.div
-                      className="cyber-node"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {exp?.icon || <FaShieldAlt className="text-2xl" />}
-                    </motion.div>
-                  </div>
-
-                  {/* Experience Card */}
-                  <div
-                    className={`w-full md:w-[calc(50%-2rem)] ml-16 md:ml-0 ${
-                      index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
-                    }`}
+                <div key={index} className="relative">
+                  <motion.div
+                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    className={`relative flex items-center ${
+                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    } gap-8`}
                   >
-                    <motion.div
-                      className="cyber-exp-card"
-                      whileHover={{ y: -5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      {/* Security Classification & Status Bar */}
-                      <div className="security-status-bar mb-4">
-                        <div className="flex items-center justify-between">
-                          <div className={`security-badge ${exp.badge.type}`}>
-                            <FaLock className="text-sm mr-2" />
-                            {exp.badge.label}
-                          </div>
-                          <div className={`status-pill ${exp.status.type}`}>
-                            {exp.status.type === "active" && (
-                              <div className="status-indicator">
-                                <div className="w-2 h-2 rounded-full bg-[#2558a5] animate-ping absolute" />
-                                <div className="w-2 h-2 rounded-full bg-[#2558a5] relative" />
-                              </div>
-                            )}
-                            <span>{exp.status.label}</span>
-                          </div>
-                        </div>
-                      </div>
+                    {/* Timeline Node with Date */}
+                    <div className="absolute left-8 md:left-1/2 flex items-center transform -translate-x-1/2 z-10">
+                      {/* Left Date */}
+                      {index % 2 === 1 && (
+                        <motion.div
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 }}
+                          className="hidden md:block absolute right-full mr-4 whitespace-nowrap"
+                        >
+                          <div className="timeline-date">{exp.period}</div>
+                        </motion.div>
+                      )}
 
-                      {/* Card Header */}
-                      <div className="card-header mb-6">
-                        <div className="flex items-center gap-4">
-                          <div className="company-logo-wrapper flex-shrink-0">
-                            {exp?.companyLogo && !imageError[exp.company] ? (
-                              <Image
-                                src={exp.companyLogo}
-                                alt={exp.company || "Company Logo"}
-                                width={48}
-                                height={48}
-                                className="rounded-lg company-logo"
-                                onError={() => handleImageError(exp.company)}
-                                priority
-                              />
-                            ) : (
-                              <div className="fallback-logo">
-                                <FaShieldAlt className="text-2xl text-[#2558a5]" />
-                              </div>
-                            )}
-                            <div className="logo-glow"></div>
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-['Golden_Antique'] text-[#ccadd3]">
-                              {exp?.title || "Position"}
-                            </h3>
-                            <a
-                              href={exp.companyUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[#c9e5e0] hover:text-[#ccadd3] transition-colors"
-                            >
-                              {exp.company}
-                            </a>
-                            <span className="text-sm text-[#2558a5] block">
-                              {exp.period}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Responsibilities */}
-                      <div className="mb-6">
-                        <h4 className="flex items-center gap-2 mb-3">
-                          <FaServer className="text-[#2558a5]" />
-                          <span className="font-['Golden_Antique'] text-[#ccadd3]">
-                            Operations
-                          </span>
-                        </h4>
-                        <div className="grid grid-cols-2 gap-2 text-white">
-                          {exp.responsibilities.map((resp, idx) => (
-                            <div key={idx} className="resp-tag">
-                              <FaCode className="text-[#2558a5]" />
-                              <span>{resp}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Achievements */}
-                      {/* <div className="mb-6">
-                        <h4 className="flex items-center gap-2 mb-3">
-                          <FaCrosshairs className="text-[#2558a5]" />
-                          <span className="font-['Golden_Antique'] text-[#ccadd3]">
-                            Success Rate
-                          </span>
-                        </h4>
-                        <div className="achievement-grid">
-                          {exp.achievements.map((achievement, idx) => (
-                            <div key={idx} className="achievement-item">
-                              <FaChevronRight className="text-[#2558a5]" />
-                              <span>{achievement}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div> */}
-
-                      {/* Tools */}
-                      {/* <div className="tools-section">
-                        <h4 className="flex items-center gap-2 mb-3">
-                          <FaTerminal className="text-[#2558a5]" />
-                          <span className="font-['Golden_Antique'] text-[#ccadd3]">
-                            Arsenal
-                          </span>
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.tools.map((tool, idx) => (
-                            <div key={idx} className="tool-chip">
-                              {tool}
-                            </div>
-                          ))}
-                        </div>
-                      </div> */}
-
-                      {/* Card Effects */}
-                      <div className="corner top-left"></div>
-                      <div className="corner top-right"></div>
-                      <div className="corner bottom-left"></div>
-                      <div className="corner bottom-right"></div>
+                      {/* Center Icon */}
                       <motion.div
-                        className="scan-line"
-                        animate={{
-                          y: ["0%", "100%"],
-                          opacity: [0, 1, 0],
-                        }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      />
-                    </motion.div>
-                  </div>
-                </motion.div>
+                        className="cyber-node relative"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {exp?.icon || <FaShieldAlt className="text-2xl" />}
+                      </motion.div>
+
+                      {/* Right Date */}
+                      {index % 2 === 0 && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 }}
+                          className="hidden md:block absolute left-full ml-4 whitespace-nowrap"
+                        >
+                          <div className="timeline-date">{exp.period}</div>
+                        </motion.div>
+                      )}
+                    </div>
+
+                    {/* Experience Card */}
+                    <div
+                      className={`w-full md:w-[calc(50%-2rem)] ml-16 md:ml-0 ${
+                        index % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
+                      }`}
+                    >
+                      <motion.div
+                        className="cyber-exp-card"
+                        whileHover={{ y: -5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        {/* Security Classification & Status Bar */}
+                        <div className="security-status-bar mb-4">
+                          <div className="flex items-center justify-between">
+                            <div className={`security-badge ${exp.badge.type}`}>
+                              <FaLock className="text-sm mr-2" />
+                              {exp.badge.label}
+                            </div>
+                            <div className={`status-pill ${exp.status.type}`}>
+                              {exp.status.type === "active" && (
+                                <div className="status-indicator">
+                                  <div className="w-2 h-2 rounded-full bg-[#2558a5] animate-ping absolute" />
+                                  <div className="w-2 h-2 rounded-full bg-[#2558a5] relative" />
+                                </div>
+                              )}
+                              <span>{exp.status.label}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Card Header */}
+                        <div className="card-header mb-6">
+                          <div className="flex items-center gap-4">
+                            <div className="company-logo-wrapper flex-shrink-0">
+                              {exp?.companyLogo && !imageError[exp.company] ? (
+                                <Image
+                                  src={exp.companyLogo}
+                                  alt={exp.company || "Company Logo"}
+                                  width={48}
+                                  height={48}
+                                  className="rounded-lg company-logo"
+                                  onError={() => handleImageError(exp.company)}
+                                  priority
+                                />
+                              ) : (
+                                <div className="fallback-logo">
+                                  <FaShieldAlt className="text-2xl text-[#2558a5]" />
+                                </div>
+                              )}
+                              <div className="logo-glow"></div>
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="text-xl font-['Golden_Antique'] text-[#ccadd3]">
+                                {exp?.title || "Position"}
+                              </h3>
+                              <a
+                                href={exp.companyUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#c9e5e0] hover:text-[#ccadd3] transition-colors"
+                              >
+                                {exp.company}
+                              </a>
+                              <span className="text-sm text-[#2558a5] block">
+                                {exp.period}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Responsibilities */}
+                        <div className="mb-6">
+                          <h4 className="flex items-center gap-2 mb-3">
+                            <FaServer className="text-[#2558a5]" />
+                            <span className="font-['Golden_Antique'] text-[#ccadd3]">
+                              Operations
+                            </span>
+                          </h4>
+                          <div className="grid grid-cols-2 gap-2 text-white">
+                            {exp.responsibilities.map((resp, idx) => (
+                              <div key={idx} className="resp-tag">
+                                <FaCode className="text-[#2558a5]" />
+                                <span>{resp}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Achievements */}
+                        <div className="mb-6">
+                          <h4 className="flex items-center gap-2 mb-3">
+                            <FaCrosshairs className="text-[#2558a5]" />
+                            <span className="font-['Golden_Antique'] text-[#ccadd3]">
+                              Success Rate
+                            </span>
+                          </h4>
+                          <div className="achievement-grid">
+                            {exp.achievements.map((achievement, idx) => (
+                              <div key={idx} className="achievement-item">
+                                <FaChevronRight className="text-[#2558a5]" />
+                                <span>{achievement}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Tools */}
+                        {/* <div className="tools-section">
+                          <h4 className="flex items-center gap-2 mb-3">
+                            <FaTerminal className="text-[#2558a5]" />
+                            <span className="font-['Golden_Antique'] text-[#ccadd3]">
+                              Arsenal
+                            </span>
+                          </h4>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.tools.map((tool, idx) => (
+                              <div key={idx} className="tool-chip">
+                                {tool}
+                              </div>
+                            ))}
+                          </div>
+                        </div> */}
+
+                        {/* Card Effects */}
+                        <div className="corner top-left"></div>
+                        <div className="corner top-right"></div>
+                        <div className="corner bottom-left"></div>
+                        <div className="corner bottom-right"></div>
+                        <motion.div
+                          className="scan-line"
+                          animate={{
+                            y: ["0%", "100%"],
+                            opacity: [0, 1, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                        />
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>

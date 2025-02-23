@@ -137,18 +137,13 @@ const Contact = () => {
             <h2 className="text-4xl font-['Golden_Antique'] text-[#ccadd3] cyber-glitch-effect">
               Secure Communications
             </h2>
-            <div className="shield-ping"></div>
           </div>
 
           {/* Terminal Box */}
           <div className="cyber-terminal-box mx-auto max-w-xl bg-[#272254]/80 border border-[#2558a5]/30 p-4 rounded-lg backdrop-blur-sm">
             <div className="flex items-center gap-2">
-              <FaTerminal
-                className={`text-[#2558a5] ${
-                  isSecured ? "text-green-500" : ""
-                }`}
-              />
-              <span className="text-[#2558a5] font-mono">root@secure:~$</span>
+              <FaTerminal className={`text-[#2558a5] ${isSecured ? "" : ""}`} />
+              <span className="text-[#2558a5] font-mono">root@security:~$</span>
               <span
                 className="text-[#c9e5e0] font-mono typing-animation"
                 style={{ color: securityPhases[securityPhase].color }}

@@ -4012,21 +4012,20 @@ html {
 /* ...existing styles... */
 
 .timeline-date {
-  @apply font-mono text-sm transition-all duration-300;
+  @apply px-3 py-1 rounded-lg text-sm;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
   color: #2558a5;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  min-width: 120px;
+  text-align: center;
   
-  &::before {
-    content: '';
-    @apply absolute w-8 h-px bg-[#2558a5]/30;
-    top: 50%;
-  }
-  
-  &.left::before {
-    right: -12px;
-  }
-  
-  &.right::before {
-    left: -12px;
+  &:hover {
+    background: rgba(37, 88, 165, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 88, 165, 0.2);
   }
 }
 
@@ -4046,6 +4045,146 @@ html {
     background: rgba(37, 88, 165, 0.2);
     transform: translateY(-2px);
   }
+}
+
+/* ...rest of existing styles... */
+
+/* ...existing styles... */
+
+/* Ribbon Animation Styles */
+.ribbon-container {
+  @apply absolute inset-0 overflow-hidden pointer-events-none;
+}
+
+.ribbon {
+  @apply absolute w-0.5 opacity-50;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #2558a5,
+    #ccadd3,
+    transparent
+  );
+  height: 100px;
+}
+
+.ribbon-1 {
+  left: 0;
+  animation: ribbonFlow 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.ribbon-2 {
+  left: 0;
+  animation: ribbonFlow 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.ribbon-3 {
+  left: 0;
+  animation: ribbonFlow 3s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes ribbonFlow {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* ...rest of existing styles... */
+
+/* ...existing styles... */
+
+.date-badge {
+  @apply px-4 py-2 rounded-lg font-mono text-sm;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  color: #2558a5;
+  position: relative;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.date-badge::before {
+  content: '';
+  @apply absolute top-1/2 w-8 h-px bg-[#2558a5]/30;
+  transform: translateY(-50%);
+}
+
+.date-right::before {
+  left: 100%;
+  margin-left: 0.5rem;
+}
+
+.date-left::before {
+  right: 100%;
+  margin-right: 0.5rem;
+}
+
+.date-badge:hover {
+  background: rgba(37, 88, 165, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 88, 165, 0.2);
+}
+
+.date-badge-mobile {
+  @apply px-3 py-1 rounded-lg inline-block;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  color: #2558a5;
+}
+
+/* ...rest of existing styles... */
+
+/* ...existing styles... */
+
+.cross-date {
+  @apply relative flex items-center gap-2 px-4 py-2 rounded-lg;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  min-width: 150px;
+  transition: all 0.3s ease;
+}
+
+.date-line {
+  @apply h-px bg-[#2558a5]/30 flex-1;
+}
+
+.date-content {
+  @apply flex items-center gap-2;
+  color: #2558a5;
+}
+
+.date-marker {
+  @apply w-2 h-2 bg-[#2558a5] transform rotate-45;
+}
+
+.date-text {
+  @apply text-sm whitespace-nowrap;
+}
+
+.date-right {
+  @apply flex-row-reverse;
+}
+
+.date-left {
+  @apply flex-row;
+}
+
+.date-badge-mobile {
+  @apply inline-flex items-center px-3 py-1 rounded-lg;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  color: #2558a5;
 }
 
 /* ...rest of existing styles... */
