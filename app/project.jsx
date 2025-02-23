@@ -12,6 +12,7 @@ import {
   FaGithub,
   FaExpand,
   FaProjectDiagram,
+  FaTerminal,
 } from "react-icons/fa";
 
 const Projects = () => {
@@ -234,6 +235,7 @@ const Projects = () => {
           {/* Terminal-style category selector */}
           <div className="project-categories mb-8">
             <div className="terminal-prompt mb-4">
+              <FaTerminal className="text-[#2558a5]" />
               <span className="text-[#2558a5]">root@security</span>
               <span className="text-[#ccadd3]">:~/project$</span>
               <span className="typing-text"> verify_project --all</span>

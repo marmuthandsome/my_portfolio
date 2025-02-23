@@ -153,6 +153,7 @@ const SecuritySkills = () => {
             </h2>
           </div>
           <div className="terminal-prompt mb-4">
+            <FaTerminal className="text-[#2558a5]" />
             <span className="text-[#2558a5]">root@security</span>
             <span className="text-[#ccadd3]">:~/pentest$</span>
             <span className="typing-text">

@@ -2538,7 +2538,7 @@ body {
 
 .project-card {
   @apply relative p-6 rounded-xl overflow-hidden;
-  background: linear-gradient(135deg,
+  background: linear-gradient(145deg,
     rgba(37, 88, 165, 0.05),
     rgba(39, 34, 84, 0.98)
   );
@@ -3304,15 +3304,18 @@ body {
 }
 
 .cyber-exp-card {
-  @apply relative p-6 rounded-xl bg-gradient-to-br from-[#272254]/95 to-[#272254]/80
-         backdrop-blur-sm border border-[#2558a5]/30;
-  transition: all 0.3s ease;
+  @apply relative p-6 rounded-xl overflow-hidden;
+  background: linear-gradient(145deg,
+    rgba(37, 88, 165, 0.05),
+    rgba(39, 34, 84, 0.98)
+  );
+  border: 1px solid rgba(37, 88, 165, 0.3);
+  backdrop-filter: blur(8px);
+}
 
-  &:hover {
-    transform: translateY(-4px);
-    border-color: #2558a5;
-    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.2);
-  }
+.scan-line {
+  @apply absolute bottom-0 left-0 w-full h-0.5;
+  background: linear-gradient(90deg, transparent, #2558a5, transparent);
 }
 
 .cyber-console {
@@ -3427,810 +3430,6 @@ body {
   @apply absolute bottom-0 left-0 w-full h-0.5;
   background: linear-gradient(90deg, transparent, #2558a5, transparent);
   animation: scan 2s linear infinite;
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing code... */
-
-.company-logo-wrapper {
-  @apply relative p-2 rounded-lg bg-[#272254] border border-[#2558a5]/30;
-  transition: all 0.3s ease;
-}
-
-.company-logo {
-  @apply rounded-lg opacity-90;
-  filter: brightness(0.9) contrast(1.1);
-  transition: all 0.3s ease;
-}
-
-.company-logo-wrapper:hover {
-  @apply border-[#2558a5];
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 88, 165, 0.2);
-
-  .company-logo {
-    @apply opacity-100;
-    filter: brightness(1) contrast(1);
-  }
-
-  .logo-glow {
-    opacity: 1;
-  }
-}
-
-.logo-glow {
-  @apply absolute inset-0 rounded-lg;
-  box-shadow: 0 0 15px rgba(37, 88, 165, 0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* ...rest of existing code... */
-
-/* ...existing styles... */
-
-.fallback-logo {
-  @apply w-12 h-12 rounded-lg flex items-center justify-center;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-/* ...rest of existing styles... */
-
-/* Contact Form Styles */
-.cyber-contact-card {
-  @apply relative p-8 rounded-xl bg-gradient-to-br from-[#272254]/95 to-[#272254]/80
-         backdrop-blur-sm border border-[#2558a5]/30;
-  transition: all 0.3s ease;
-}
-
-.cyber-input-group {
-  @apply relative mb-4;
-}
-
-.cyber-input, .cyber-textarea {
-  @apply w-full px-4 py-3 bg-[#272254] border border-[#2558a5]/30 rounded-lg
-         text-[#c9e5e0] placeholder-[#c9e5e0]/50 outline-none;
-  transition: all 0.3s ease;
-  
-  &:focus {
-    @apply border-[#2558a5];
-    box-shadow: 0 0 15px rgba(37, 88, 165, 0.2);
-  }
-}
-
-.cyber-textarea {
-  @apply resize-none;
-}
-
-.input-glow {
-  @apply absolute inset-0 rounded-lg opacity-0;
-  box-shadow: 0 0 15px rgba(37, 88, 165, 0.3);
-  transition: opacity 0.3s ease;
-}
-
-.cyber-input:focus + .input-glow,
-.cyber-textarea:focus + .input-glow {
-  opacity: 1;
-}
-
-.cyber-button-primary {
-  @apply px-6 py-3 bg-[#2558a5]/10 border border-[#2558a5] rounded-lg
-         text-[#c9e5e0] font-['Golden_Antique'] relative overflow-hidden;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    @apply bg-[#2558a5]/20;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 88, 165, 0.2);
-  }
-  
-  &:disabled {
-    @apply opacity-50 cursor-not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-.cyber-info-card {
-  @apply relative p-6 rounded-xl bg-gradient-to-br from-[#272254]/95 to-[#272254]/80
-         backdrop-blur-sm border border-[#2558a5]/30;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    border-color: #2558a5;
-    box-shadow: 0 8px 20px rgba(37, 88, 165, 0.2);
-  }
-}
-
-.secure-channel-item {
-  @apply flex items-center gap-3 p-3 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: rgba(37, 88, 165, 0.2);
-    transform: translateX(4px);
-  }
-}
-
-.social-link-card {
-  @apply flex items-center gap-4 p-4 rounded-lg
-         bg-[#272254] border border-[#2558a5]/30;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    border-color: var(--hover-color);
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(37, 88, 165, 0.2);
-  }
-}
-
-.corner-bracket {
-  @apply absolute w-4 h-4 border-2 border-[#2558a5]/30;
-  transition: all 0.3s;
-}
-
-.top-left { @apply top-2 left-2 border-r-0 border-b-0; }
-.top-right { @apply top-2 right-2 border-l-0 border-b-0; }
-.bottom-left { @apply bottom-2 left-2 border-r-0 border-t-0; }
-.bottom-right { @apply bottom-2 right-2 border-l-0 border-t-0; }
-
-.cyber-contact-card:hover .corner-bracket,
-.cyber-info-card:hover .corner-bracket {
-  @apply border-[#2558a5];
-  transform: scale(1.2);
-}
-
-.scan-line {
-  @apply absolute bottom-0 left-0 w-full h-0.5;
-  background: linear-gradient(90deg, transparent, #2558a5, transparent);
-  opacity: 0;
-  animation: scan 2s linear infinite;
-}
-
-.cyber-contact-card:hover .scan-line {
-  opacity: 0.5;
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing styles... */
-
-/* Contact Channel Card Styles */
-.contact-card {
-  @apply relative p-6 rounded-xl bg-gradient-to-br from-[#272254]/95 to-[#272254]/80
-         backdrop-blur-sm border border-[#2558a5]/30;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    border-color: #2558a5;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.2);
-  }
-}
-
-.security-badge {
-  @apply absolute top-4 right-4 flex items-center gap-2 px-3 py-1 rounded-full
-         bg-[#272254] border border-[#2558a5]/30 text-xs font-mono;
-}
-
-.channel-content {
-  @apply relative z-10;
-}
-
-.icon-container {
-  @apply mb-4 p-3 inline-block rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  transition: all 0.3s ease;
-}
-
-.contact-card:hover .icon-container {
-  background: rgba(37, 88, 165, 0.2);
-  transform: scale(1.1);
-}
-
-.channel-title {
-  @apply text-xl font-['Golden_Antique'] text-[#ccadd3] mb-2;
-}
-
-.channel-value {
-  @apply block text-sm text-[#c9e5e0] mb-3 font-mono;
-  &:hover {
-    color: #ccadd3;
-  }
-}
-
-.channel-description {
-  @apply text-sm text-[#c9e5e0]/70 mb-4;
-}
-
-.channel-details {
-  @apply flex flex-wrap gap-3 mt-auto;
-}
-
-.detail-item {
-  @apply flex items-center gap-2 px-2 py-1 rounded-lg text-xs;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.corner {
-  @apply absolute w-3 h-3 border-2 border-[#2558a5]/30;
-  transition: all 0.3s ease;
-}
-
-.top-left {
-  @apply top-2 left-2;
-  border-right: 0;
-  border-bottom: 0;
-}
-
-.top-right {
-  @apply top-2 right-2;
-  border-left: 0;
-  border-bottom: 0;
-}
-
-.bottom-left {
-  @apply bottom-2 left-2;
-  border-right: 0;
-  border-top: 0;
-}
-
-.bottom-right {
-  @apply bottom-2 right-2;
-  border-left: 0;
-  border-top: 0;
-}
-
-.contact-card:hover .corner {
-  @apply border-[#2558a5];
-  transform: scale(1.2);
-}
-
-.scan-line {
-  @apply absolute bottom-0 left-0 w-full h-0.5;
-  background: linear-gradient(90deg, transparent, #2558a5, transparent);
-  opacity: 0;
-  animation: scan 2s linear infinite;
-}
-
-.contact-card:hover .scan-line {
-  opacity: 0.5;
-}
-
-.cyber-terminal-header {
-  @apply inline-flex items-center px-6 py-3 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.security-note {
-  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.typing-animation::after {
-  content: '█';
-  animation: blink 1s step-end infinite;
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing styles... */
-
-/* Contact Page Specific Styles */
-.terminal-window {
-  @apply p-4 rounded-lg bg-[#272254] border border-[#2558a5]/30 mb-8;
-  box-shadow: 0 0 20px rgba(37, 88, 165, 0.2);
-}
-
-.terminal-header {
-  @apply flex items-center gap-3 mb-4 px-4 py-2 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.security-progress {
-  @apply h-1 bg-[#272254]/50 rounded-full overflow-hidden;
-}
-
-.progress-bar {
-  @apply h-full bg-[#2558a5];
-  transition: width 0.5s ease;
-}
-
-.secure-channel-card {
-  @apply relative p-6 rounded-xl;
-  background: linear-gradient(145deg,
-    rgba(37, 88, 165, 0.05),
-    rgba(39, 34, 84, 0.98)
-  );
-  border: 1px solid rgba(37, 88, 165, 0.3);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-4px);
-    border-color: #2558a5;
-    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
-  }
-}
-
-.clearance-badge {
-  @apply absolute top-4 right-4 flex items-center gap-2 px-3 py-1
-         rounded-full text-xs font-mono;
-  background: rgba(37, 88, 165, 0.2);
-  border: 1px solid rgba(37, 88, 165, 0.3);
-  color: #c9e5e0;
-}
-
-.channel-body {
-  @apply relative z-10;
-}
-
-.icon-wrapper {
-  @apply relative inline-block p-4 text-3xl rounded-lg mb-4;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.scan-ring {
-  @apply absolute inset-0 rounded-lg;
-  border: 1px solid currentColor;
-  opacity: 0;
-  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-.channel-info {
-  @apply mb-4;
-  
-  h3 {
-    @apply text-xl font-['Golden_Antique'] text-[#ccadd3] mb-2;
-  }
-}
-
-.channel-link {
-  @apply flex items-center justify-between p-3 rounded-lg
-         text-[#c9e5e0] font-mono hover:text-[#ccadd3];
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  transition: all 0.3s ease;
-  
-  .link-arrow {
-    @apply opacity-50 transition-all;
-  }
-  
-  &:hover {
-    background: rgba(37, 88, 165, 0.2);
-    transform: translateX(4px);
-    
-    .link-arrow {
-      @apply opacity-100 transform translate-x-1;
-    }
-  }
-}
-
-.channel-value {
-  @apply p-3 rounded-lg text-[#c9e5e0] font-mono;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.security-details {
-  @apply flex gap-4;
-}
-
-.security-item {
-  @apply flex items-center gap-2 px-3 py-1 rounded-lg text-sm;
-  background: rgba(201, 229, 224, 0.05);
-  border: 1px solid rgba(201, 229, 224, 0.1);
-  color: #c9e5e0;
-}
-
-.corner-bracket {
-  @apply absolute w-4 h-4 border-2 border-[#2558a5]/30;
-  transition: all 0.3s;
-}
-
-.top-left { @apply top-2 left-2 border-r-0 border-b-0; }
-.top-right { @apply top-2 right-2 border-l-0 border-b-0; }
-.bottom-left { @apply bottom-2 left-2 border-r-0 border-t-0; }
-.bottom-right { @apply bottom-2 right-2 border-l-0 border-t-0; }
-
-.secure-channel-card:hover .corner-bracket {
-  @apply border-[#2558a5];
-  transform: scale(1.2);
-}
-
-.scan-line {
-  @apply absolute bottom-0 left-0 w-full h-0.5;
-  background: linear-gradient(90deg, transparent, #2558a5, transparent);
-  opacity: 0;
-  animation: scan 2s linear infinite;
-}
-
-.secure-channel-card:hover .scan-line {
-  opacity: 0.5;
-}
-
-.security-footer {
-  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  color: #c9e5e0;
-}
-
-.blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing styles... */
-
-/* Contact Terminal Card Styles */
-.contact-terminal-card {
-  @apply relative p-6 rounded-xl;
-  background: linear-gradient(145deg,
-    rgba(37, 88, 165, 0.05),
-    rgba(39, 34, 84, 0.98)
-  );
-  border: 1px solid rgba(37, 88, 165, 0.3);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-4px);
-    border-color: #2558a5;
-    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
-  }
-}
-
-.secure-icon-wrapper {
-  @apply relative p-2 rounded-full;
-  background: rgba(37, 88, 165, 0.1);
-  
-  .ping-effect {
-    @apply absolute inset-0 rounded-full;
-    border: 2px solid #2558a5;
-    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-}
-
-.terminal-status {
-  @apply flex items-center justify-center gap-2 px-6 py-3 rounded-lg mx-auto;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.security-banner {
-  @apply flex justify-between items-center mb-6 p-2 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.security-indicator, .port-indicator {
-  @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono text-[#c9e5e0];
-}
-
-.channel-header {
-  @apply flex justify-between items-start mb-6;
-}
-
-.icon-container {
-  @apply relative p-4 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  color: #ccadd3;
-}
-
-.scan-effect {
-  @apply absolute inset-0 rounded-lg;
-  background: linear-gradient(
-    transparent,
-    rgba(37, 88, 165, 0.1),
-    transparent
-  );
-  animation: scan 2s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.contact-terminal-card:hover .scan-effect {
-  opacity: 1;
-}
-
-.protocol-badge {
-  @apply flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-mono;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  color: #c9e5e0;
-}
-
-.contact-link, .contact-value {
-  @apply flex items-center justify-between p-3 rounded-lg mt-4
-         text-[#c9e5e0] font-mono;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  transition: all 0.3s;
-}
-
-.contact-link:hover {
-  background: rgba(37, 88, 165, 0.2);
-  transform: translateX(4px);
-}
-
-.link-status {
-  @apply px-2 py-1 rounded text-xs;
-  background: rgba(37, 88, 165, 0.2);
-  border: 1px solid rgba(37, 88, 165, 0.3);
-}
-
-.corner-bracket {
-  @apply absolute w-4 h-4 border-2 border-[#2558a5]/30;
-  transition: all 0.3s;
-}
-
-.top-left { @apply top-2 left-2 border-r-0 border-b-0; }
-.top-right { @apply top-2 right-2 border-l-0 border-b-0; }
-.bottom-left { @apply bottom-2 left-2 border-r-0 border-t-0; }
-.bottom-right { @apply bottom-2 right-2 border-l-0 border-t-0; }
-
-.contact-terminal-card:hover .corner-bracket {
-  @apply border-[#2558a5];
-  transform: scale(1.2);
-}
-
-.scanning-line {
-  @apply absolute bottom-0 left-0 w-full h-0.5;
-  background: linear-gradient(90deg, transparent, #2558a5, transparent);
-  opacity: 0;
-  animation: scan 2s linear infinite;
-}
-
-.contact-terminal-card:hover .scanning-line {
-  opacity: 0.5;
-}
-
-.security-verification {
-  @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-@keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing styles... */
-
-/* Contact Page Styles */
-.security-shield {
-  @apply relative p-3 rounded-full;
-  background: rgba(37, 88, 165, 0.1);
-  
-  .shield-ping {
-    @apply absolute inset-0 rounded-full;
-    border: 2px solid #2558a5;
-    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-}
-
-.cyber-terminal {
-  @apply max-w-xl mx-auto mb-8;
-}
-
-.terminal-header {
-  @apply flex items-center gap-3 px-6 py-3 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.channel-card {
-  @apply relative p-6 rounded-xl;
-  background: linear-gradient(145deg,
-    rgba(37, 88, 165, 0.05),
-    rgba(39, 34, 84, 0.98)
-  );
-  border: 1px solid rgba(37, 88, 165, 0.3);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-4px);
-    border-color: #2558a5;
-    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
-  }
-}
-
-.channel-security {
-  @apply flex justify-between items-center mb-6;
-}
-
-.security-badge, .port-info {
-  @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono text-[#c9e5e0];
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.channel-content {
-  @apply relative z-10;
-}
-
-.icon-wrapper {
-  @apply relative inline-block p-4 text-3xl rounded-lg mb-4;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.icon-scan {
-  @apply absolute inset-0 rounded-lg;
-  border: 1px solid currentColor;
-  opacity: 0;
-  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-.channel-info {
-  @apply mb-4;
-  
-  h3 {
-    @apply text-xl font-['Golden_Antique'] text-[#ccadd3] mb-2;
-  }
-}
-
-.channel-link {
-  @apply flex items-center justify-between p-3 rounded-lg text-[#c9e5e0] 
-         font-mono hover:text-[#ccadd3] transition-all duration-300;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  
-  &:hover {
-    background: rgba(37, 88, 165, 0.2);
-    transform: translateX(4px);
-  }
-}
-
-.channel-value {
-  @apply p-3 rounded-lg text-[#c9e5e0] font-mono;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-}
-
-.protocol-info {
-  @apply flex justify-between items-center;
-}
-
-.protocol-badge, .access-badge {
-  @apply flex items-center gap-2 px-3 py-1 rounded-lg text-xs;
-  background: rgba(201, 229, 224, 0.05);
-  border: 1px solid rgba(201, 229, 224, 0.1);
-  color: #c9e5e0;
-}
-
-.corner-bracket {
-  @apply absolute w-4 h-4 border-2 border-[#2558a5]/30;
-  transition: all 0.3s;
-}
-
-.top-left { @apply top-2 left-2 border-r-0 border-b-0; }
-.top-right { @apply top-2 right-2 border-l-0 border-b-0; }
-.bottom-left { @apply bottom-2 left-2 border-r-0 border-t-0; }
-.bottom-right { @apply bottom-2 right-2 border-l-0 border-t-0; }
-
-.channel-card:hover .corner-bracket {
-  @apply border-[#2558a5];
-  transform: scale(1.2);
-}
-
-.scan-line {
-  @apply absolute bottom-0 left-0 w-full h-0.5;
-  background: linear-gradient(90deg, transparent, #2558a5, transparent);
-  opacity: 0;
-  animation: scanLine 2s linear infinite;
-}
-
-.channel-card:hover .scan-line {
-  opacity: 0.5;
-}
-
-.security-footer {
-  @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  color: #c9e5e0;
-}
-
-.blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes scanLine {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* ...rest of existing styles... */
-
-/* ...existing styles... */
-
-/* Updated Security Status Bar Styles */
-.security-status-bar {
-  @apply flex justify-between items-center mb-6 px-4 py-3 rounded-lg;
-  background: rgba(37, 88, 165, 0.05);
-  border: 1px solid rgba(37, 88, 165, 0.1);
-}
-
-.security-badge {
-  @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono;
-  background: rgba(37, 88, 165, 0.1);
-  border: 1px solid rgba(37, 88, 165, 0.3);
-  transition: all 0.3s ease;
-}
-
-.security-badge.classified {
-  background: linear-gradient(90deg, 
-    rgba(37, 88, 165, 0.2),
-    rgba(204, 173, 211, 0.1)
-  );
-  border-color: #2558a5;
-  color: #c9e5e0;
-  box-shadow: 0 0 10px rgba(37, 88, 165, 0.2);
-}
-
-.security-badge.restricted {
-  background: rgba(204, 173, 211, 0.1);
-  border-color: #ccadd3;
-  color: #ccadd3;
-}
-
-.status-pill {
-  @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono;
-  transition: all 0.3s ease;
-}
-
-.status-pill.active {
-  background: rgba(37, 88, 165, 0.15);
-  border: 1px solid #2558a5;
-  color: #2558a5;
-}
-
-.status-pill.completed {
-  background: rgba(204, 173, 211, 0.1);
-  border: 1px solid #ccadd3;
-  color: #ccadd3;
-}
-
-.pulse-dot {
-  @apply w-2 h-2 rounded-full bg-[#2558a5];
-  animation: pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-.clearance-indicator {
-  @apply flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-mono;
-  background: rgba(37, 88, 165, 0.05);
-  border: 1px solid rgba(37, 88, 165, 0.2);
-  color: #c9e5e0;
-  
-  &:hover {
-    background: rgba(37, 88, 165, 0.1);
-    transform: translateY(-1px);
-  }
 }
 
 /* ...rest of existing styles... */
@@ -4396,56 +3595,193 @@ html {
 @keyframes glitch {
   0% {
     text-shadow: 0.05em 0 0 #ccadd3,
-                -0.025em -0.05em 0 #2558a5,
-  .star-dot { @apply top-0 left-0; }
-  .horizontal { @apply right-0 top-1 h-px w-full; }
-  .vertical { @apply bottom-0 left-1 w-px h-full; }
+                -0.025em -0.05em 0 #2558a5;
+  }
+  33% {
+    text-shadow: -0.05em 0 0 #2558a5,
+                0.025em 0.05em 0 #ccadd3;
+  }
+  66% {
+    text-shadow: 0.05em 0 0 #c9e5e0,
+                -0.025em -0.05em 0 #ccadd3;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #2558a5,
+                0.025em 0.05em 0 #c9e5e0;
+  }
 }
 
-.top-right {
-  @apply top-0 right-0;
-  .star-dot { @apply top-0 right-0; }
-  .horizontal { @apply left-0 top-1 h-px w-full; }
-  .vertical { @apply bottom-0 right-1 w-px h-full; }
-}
-
-.bottom-left {
-  @apply bottom-0 left-0;
-  .star-dot { @apply bottom-0 left-0; }
-  .horizontal { @apply right-0 bottom-1 h-px w-full; }
-  .vertical { @apply top-0 left-1 w-px h-full; }
-}
-
-.bottom-right {
-  @apply bottom-0 right-0;
-  .star-dot { @apply bottom-0 right-0; }
-  .horizontal { @apply left-0 bottom-1 h-px w-full; }
-  .vertical { @apply top-0 right-1 w-px h-full; }
-}
-
-.star-border-line {
-  @apply absolute bg-gradient-to-r from-[#2558a5] via-[#2558a5]/50 to-[#2558a5];
-  height: 1px;
-}
-
-.star-border-line.top { @apply top-0 left-8 right-8; }
-.star-border-line.bottom { @apply bottom-0 left-8 right-8; }
-.star-border-line.left { @apply left-0 top-8 bottom-8 w-px bg-gradient-to-b; }
-.star-border-line.right { @apply right-0 top-8 bottom-8 w-px bg-gradient-to-b; }
-
-.project-card:hover .star-dot {
-  box-shadow: 0 0 10px #2558a5;
-  animation: starGlow 2s ease-in-out infinite;
-}
-
-@keyframes starGlow {
-  0%, 100% {
-    opacity: 0.5;
-    filter: brightness(1);
+@keyframes glitch-1 {
+  0% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  5% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  10% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  15% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  25% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  30% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  35% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  40% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  45% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
   }
   50% {
-    opacity: 1;
-    filter: brightness(1.5);
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  55% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  60% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  65% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  70% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  75% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  80% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  85% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  90% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  95% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  100% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  5% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  10% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  15% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  25% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  30% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  35% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  40% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  45% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  50% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  55% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  60% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  65% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  70% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  75% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  80% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  85% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  90% {
+    clip: rect(12px, 9999px, 56px, 0);
+    transform: skew(0.3deg);
+  }
+  95% {
+    clip: rect(32px, 9999px, 78px, 0);
+    transform: skew(0.3deg);
+  }
+  100% {
+    clip: rect(24px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
   }
 }
 
@@ -4453,24 +3789,221 @@ html {
 
 /* ...existing styles... */
 
+/* Project Cards */
 .project-card {
-  @apply relative rounded-xl;
+  @apply relative p-6 rounded-xl overflow-hidden;
+  background: linear-gradient(145deg,
+    rgba(37, 88, 165, 0.05),
+    rgba(39, 34, 84, 0.98)
+  );
+  border: 1px solid rgba(37, 88, 165, 0.3);
   transition: all 0.3s ease;
-}
-
-.project-card:hover .w-2.h-2 {
-  animation: starGlow 2s ease-in-out infinite;
-  box-shadow: 0 0 10px #2558a5;
-}
-
-@keyframes starGlow {
-  0%, 100% {
-    opacity: 0.5;
-    filter: brightness(1);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
   }
-  50% {
-    opacity: 1;
-    filter: brightness(1.5);
+}
+
+/* Contact Section */
+.channel-card {
+  @apply relative p-6 rounded-xl;
+  background: linear-gradient(145deg,
+    rgba(37, 88, 165, 0.05),
+    rgba(39, 34, 84, 0.98)
+  );
+  border: 1px solid rgba(37, 88, 165, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: #2558a5;
+    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
+  }
+}
+
+/* Certification Section */
+.secure-terminal-card {
+  @apply relative p-6 rounded-xl;
+  background: linear-gradient(145deg,
+    rgba(37, 88, 165, 0.05),
+    rgba(39, 34, 84, 0.98)
+  );
+  border: 1px solid rgba(37, 88, 165, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: #2558a5;
+    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
+  }
+}
+
+.cert-item {
+  @apply mt-6 p-4 rounded-lg;
+  background: rgba(37, 88, 165, 0.05);
+  border: 1px solid rgba(37, 88, 165, 0.1);
+  
+  &:hover {
+    background: rgba(37, 88, 165, 0.1);
+  }
+}
+
+.topics-grid {
+  @apply grid grid-cols-2 gap-2 my-4;
+}
+
+.topic-tag {
+  @apply flex items-center gap-2 px-2 py-1 text-sm rounded-lg;
+  background: rgba(201, 229, 224, 0.05);
+  border: 1px solid rgba(201, 229, 224, 0.1);
+}
+
+.cert-footer {
+  @apply flex justify-between items-center mt-4 pt-3;
+  border-top: 1px solid rgba(37, 88, 165, 0.2);
+}
+
+.cert-status, .verify-id {
+  @apply flex items-center gap-2 text-sm opacity-70;
+}
+
+.terminal-prompt {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+}
+
+.security-status {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+}
+
+.typing-text {
+  &::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+  }
+}
+
+/* Channel Security Badges */
+.channel-security {
+  @apply flex justify-between items-center mb-6;
+}
+
+.security-badge, .port-info {
+  @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+}
+
+/* Certificate Type Badges */
+.cert-type-badge {
+  @apply px-2 py-1 text-xs rounded-md font-mono;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid;
+
+  &.professional {
+    background: rgba(37, 88, 165, 0.15);
+    color: #2558a5;
+  }
+
+  &.practitioner {
+    background: rgba(204, 173, 211, 0.15);
+    color: #ccadd3;
+  }
+
+  &.associate {
+    background: rgba(201, 229, 224, 0.15);
+    color: #c9e5e0;
+  }
+
+  &.essentials {
+    background: rgba(138, 125, 155, 0.15);
+    color: #8a7d9b;
+  }
+}
+
+/* ...rest of existing styles... */
+
+.secure-channel-card {
+  @apply relative p-6 rounded-xl overflow-hidden;
+  background: linear-gradient(145deg,
+    rgba(37, 88, 165, 0.05),
+    rgba(39, 34, 84, 0.98)
+  );
+  border: 1px solid rgba(37, 88, 165, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: #2558a5;
+    box-shadow: 0 8px 30px rgba(37, 88, 165, 0.3);
+  }
+}
+
+.cyber-terminal-box {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2558a5, transparent);
+    animation: scanLine 2s linear infinite;
+  }
+}
+
+.cyber-icon-wrapper {
+  @apply p-3 rounded-lg text-xl relative;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  transition: all 0.3s ease;
+  
+  .icon-glow {
+    @apply absolute inset-0 rounded-lg opacity-0;
+    box-shadow: 0 0 20px rgba(37, 88, 165, 0.5);
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: scale(1.05);
+    .icon-glow {
+      opacity: 1;
+    }
+  }
+}
+
+.secure-link {
+  @apply flex items-center justify-between p-3 rounded-lg;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(37, 88, 165, 0.2);
+    transform: translateX(4px);
+  }
+}
+
+.secure-value {
+  @apply p-3 rounded-lg;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+}
+
+@keyframes scanLine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 
@@ -4478,25 +4011,41 @@ html {
 
 /* ...existing styles... */
 
-@keyframes shadow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 10px #2558a5, 0 0 20px #2558a5;
+.timeline-date {
+  @apply font-mono text-sm transition-all duration-300;
+  color: #2558a5;
+  
+  &::before {
+    content: '';
+    @apply absolute w-8 h-px bg-[#2558a5]/30;
+    top: 50%;
   }
-  50% {
-    box-shadow: 0 0 15px #2558a5, 0 0 30px #2558a5;
+  
+  &.left::before {
+    right: -12px;
   }
-}
-
-.shadow-glow {
-  animation: shadow-pulse 2s ease-in-out infinite;
+  
+  &.right::before {
+    left: -12px;
+  }
 }
 
 /* ...rest of existing styles... */
 
 /* ...existing styles... */
 
-html {
-  scroll-behavior: smooth;
+.timeline-date {
+  position: relative;
+  padding: 0.5rem;
+  background: rgba(37, 88, 165, 0.1);
+  border: 1px solid rgba(37, 88, 165, 0.2);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(37, 88, 165, 0.2);
+    transform: translateY(-2px);
+  }
 }
 
 /* ...rest of existing styles... */

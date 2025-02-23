@@ -198,141 +198,107 @@ const Certifications = () => {
       id="certifications"
       className="min-h-screen bg-[#272254] text-[#c9e5e0] py-20 px-4"
     >
-      {/* Terminal Effect Background */}
-      <div className="terminal-background"></div>
-
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-12">
-          <div className="mb-12 space-y-4">
-            <div className="flex items-center gap-3">
-              <FaShieldVirus className="text-3xl text-[#2558a5]" />
-              <h2 className="text-4xl font-['Golden_Antique'] cyber-glitch">
-                Security Certifications
-              </h2>
-            </div>
-            <div className="terminal-prompt mb-4">
-              <span className="text-[#2558a5]">root@security</span>
-              <span className="text-[#ccadd3]">:~/credentials$</span>
-              <span className="typing-text"> verify_certificates --all</span>
-            </div>
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <FaShieldVirus className="text-4xl text-[#2558a5]" />
+            <h2 className="text-4xl font-['Golden_Antique'] text-[#ccadd3]">
+              Security Clearance
+            </h2>
           </div>
-          <div className="security-status">
-            <FaShieldAlt className="text-[#2558a5] animate-pulse" />
-            <span className="font-mono text-sm">
-              SECURITY CLEARANCE: VERIFIED
+
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[rgba(37,88,165,0.1)] border border-[rgba(37,88,165,0.2)]">
+            <FaTerminal className="text-[#2558a5]" />
+            <span className="text-[#2558a5] font-mono">root@security:</span>
+            <span className="text-[#c9e5e0] font-mono typing-text">
+              authenticate_credentials --all
             </span>
           </div>
         </div>
+
         {/* Certification Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certifications.map((category) => (
-            <div key={category.id} className="secure-terminal-card">
-              {/* Card Header */}
-              <div className="terminal-header">
+            <div key={category.id} className="cert-card">
+              {/* Category Header */}
+              <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="cert-icon">{category.icon}</div>
+                  <div className="p-3 rounded-lg bg-[rgba(37,88,165,0.1)] border border-[rgba(37,88,165,0.2)]">
+                    {category.icon}
+                  </div>
                   <div>
-                    <h3 className="font-['Golden_Antique'] text-xl">
+                    <h3 className="text-xl font-['Golden_Antique'] text-[#ccadd3]">
                       {category.title}
                     </h3>
-                    <div className="clearance-indicator">
+                    <div className="flex items-center gap-2 text-sm">
                       <FaKey className="text-[#2558a5]" />
                       <span>Clearance: {category.clearance}</span>
                     </div>
                   </div>
                 </div>
-                <FaFingerprint className="text-2xl text-[#2558a5]" />
               </div>
 
-              {/* Certifications */}
-              <div className="cert-list">
+              {/* Certifications List */}
+              <div className="space-y-6">
                 {category.certs.map((cert) => (
                   <div key={cert.name} className="cert-item">
-                    <div className="cert-header">
-                      <div className="flex justify-between items-start w-full">
-                        <div>
-                          <div className="flex items-center gap-3">
-                            <h4 className="text-lg text-[#ccadd3]">
-                              {cert.name}
-                            </h4>
-                            <span
-                              className={`cert-type-badge ${cert.type.toLowerCase()}`}
-                              style={{
-                                borderColor: certTypes[cert.type].color,
-                              }}
-                            >
-                              {certTypes[cert.type].badge}
-                            </span>
-                          </div>
-                          <p className="text-sm opacity-80">{cert.title}</p>
-                          <p className="text-xs text-[#2558a5] mt-1">
-                            {certTypes[cert.type].description}
-                          </p>
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className="text-lg text-[#ccadd3]">
+                            {cert.name}
+                          </h4>
+                          <span
+                            className={`cert-type-badge ${cert.type.toLowerCase()}`}
+                          >
+                            {certTypes[cert.type].badge}
+                          </span>
                         </div>
-
-                        {cert.issuerLogo && (
-                          <div className="issuer-logo-container">
-                            <Image
-                              src={cert.issuerLogo}
-                              alt="Issuer Logo"
-                              width={40}
-                              height={40}
-                              className="rounded-full"
-                            />
-                          </div>
-                        )}
+                        <p className="text-sm opacity-80">{cert.title}</p>
                       </div>
+                      {cert.issuerLogo && (
+                        <Image
+                          src={cert.issuerLogo}
+                          alt="Issuer"
+                          width={40}
+                          height={40}
+                          className="rounded-lg"
+                        />
+                      )}
                     </div>
 
-                    {/* {cert.certImage && (
-                      <div className="cert-image-container my-4">
-                        <Image
-                          src={cert.certImage}
-                          alt={`${cert.name} Certificate`}
-                          width={600}
-                          height={400}
-                          className="rounded-lg cert-image"
-                        />
-                        <div className="cert-image-overlay">
-                          <span>Click to view</span>
+                    {/* Topics Grid */}
+                    <div className="grid grid-cols-2 gap-2 mb-4">
+                      {cert.topics.map((topic, idx) => (
+                        <div key={idx} className="topic-tag">
+                          <FaCheck className="text-[#2558a5]" />
+                          <span>{topic}</span>
                         </div>
-                      </div>
-                    )} */}
+                      ))}
+                    </div>
 
-                    <div className="cert-details">
-                      <div className="topics-grid">
-                        {cert.topics.map((topic, idx) => (
-                          <div key={idx} className="topic-tag">
-                            <FaCheck className="text-[#2558a5]" />
-                            <span>{topic}</span>
-                          </div>
-                        ))}
+                    {/* Footer */}
+                    <div className="flex justify-between items-center pt-4 border-t border-[rgba(37,88,165,0.2)]">
+                      <div className="flex items-center gap-2 text-sm">
+                        <FaServer className="text-[#2558a5]" />
+                        <span>{cert.status}</span>
                       </div>
-
-                      <div className="cert-footer">
-                        <div className="cert-status">
-                          <FaServer className="text-[#2558a5]" />
-                          <span>{cert.status}</span>
-                        </div>
-                        <div className="verify-id">
-                          <FaTerminal className="text-[#2558a5]" />
-                          <span>{cert.verificationId}</span>
-                        </div>
+                      <div className="flex items-center gap-2 text-sm opacity-70">
+                        <FaTerminal className="text-[#2558a5]" />
+                        <span>{cert.verificationId}</span>
                       </div>
-
-                      <div className="scan-line"></div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Card Effects */}
-              <div className="holo-effect"></div>
-              <div className="corner-bracket top-left"></div>
-              <div className="corner-bracket top-right"></div>
-              <div className="corner-bracket bottom-left"></div>
-              <div className="corner-bracket bottom-right"></div>
+              {/* Visual Effects */}
+              <div className="corner top-left"></div>
+              <div className="corner top-right"></div>
+              <div className="corner bottom-left"></div>
+              <div className="corner bottom-right"></div>
+              <div className="scan-line"></div>
             </div>
           ))}
         </div>
