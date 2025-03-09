@@ -62,8 +62,8 @@ const Banner = () => {
           </div>
 
           <div className="flex gap-4 justify-center mt-8">
-            <a href="#projects" className="cyber-button">
-              View Projects
+            <a href="/blog" className="cyber-button">
+              Blog/Article
               <span className="cyber-button__glitch"></span>
             </a>
             <a href="#contact" className="cyber-button-secondary">

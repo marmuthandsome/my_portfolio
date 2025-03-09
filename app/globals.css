@@ -3555,6 +3555,12 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Accounts for fixed header */
+}
+
+/* Smooth anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
 }
 
 /* ...rest of existing styles... */
